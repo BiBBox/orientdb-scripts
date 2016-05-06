@@ -1,0 +1,77 @@
+CREATE CLASS Entity EXTENDS V ABSTRACT
+CREATE PROPERTY Entity.prov#wasGeneratedBy STRING
+CREATE PROPERTY Entity.prov#generatedAtTime STRING
+CREATE PROPERTY Entity.prov#invalidatedAtTime STRING
+CREATE PROPERTY Entity.prov#wasAttributedTo STRING
+CREATE PROPERTY Entity.prov#qualifiedGeneration STRING
+CREATE PROPERTY Entity.prov#wasDerivedFrom STRING
+CREATE PROPERTY Entity.prov#specializationOf STRING
+CREATE PROPERTY Entity.prov#qualifiedDerivation STRING
+CREATE PROPERTY Entity.prov#qualifiedInvalidation STRING
+CREATE PROPERTY Entity.prov#qualifiedQuotation STRING
+CREATE PROPERTY Entity.prov#hadPrimarySource STRING
+CREATE PROPERTY Entity.prov#qualifiedPrimarySource STRING
+CREATE PROPERTY Entity.prov#alternateOf STRING
+CREATE PROPERTY Entity.prov#value STRING
+CREATE PROPERTY Entity.prov#wasInvalidatedBy STRING
+CREATE PROPERTY Entity.prov#qualifiedAttribution STRING
+CREATE PROPERTY Entity.prov#wasQuotedFrom STRING
+CREATE PROPERTY Entity.prov#qualifiedRevision STRING
+CREATE PROPERTY Entity.prov#wasRevisionOf STRING
+CREATE PROPERTY Entity.prov#wasInfluencedBy STRING
+CREATE PROPERTY Entity.prov#qualifiedInfluence STRING
+CREATE PROPERTY Entity.prov#atLocation STRING
+
+CREATE PROPERTY Entity.tool STRING
+CREATE PROPERTY Entity.weburl STRING
+CREATE PROPERTY Entity.apiurl STRING
+CREATE PROPERTY Entity.intoolid STRING
+
+CREATE CLASS PersonId EXTENDS V
+CREATE PROPERTY PersonId.IdOntology STRING
+CREATE PROPERTY PersonId.IdValue STRING
+
+CREATE CLASS PhysicalObject EXTENDS Entity ABSTRACT
+
+CREATE CLASS Subject EXTENDS PhysicalObject
+CREATE PROPERTY Subject.foaf#givenname STRING
+CREATE PROPERTY Subject.foaf#family_name STRING
+CREATE PROPERTY Subject.DateOfBirth DATE
+CREATE PROPERTY Subject.foaf#gender STRING
+CREATE PROPERTY Subject.foaf#img STRING
+CREATE PROPERTY Subject.foaf#mbox EMBEDDEDLIST STRING
+CREATE PROPERTY Subject.foaf#skypeID STRING
+CREATE PROPERTY Subject.foaf#ID EMBEDDEDLIST PersonId
+
+CREATE CLASS Aliquot EXTENDS PhysicalObject
+CREATE PROPERTY Aliquot.miabis#Location STRING
+CREATE PROPERTY Aliquot.miabis#Avaiability STRING
+CREATE PROPERTY Aliquot.miabis#Amount STRING
+CREATE PROPERTY Aliquot.ucum#AmountUnit STRING
+CREATE PROPERTY Aliquot.miabis#MaterialCarrier STRING
+CREATE PROPERTY Aliquot.miabis#PreservationMethods STRING
+CREATE PROPERTY Aliquot.miabis#StorageTemperature STRING
+
+CREATE CLASS Sample EXTENDS PhysicalObject
+CREATE PROPERTY Sample.miabis#MaterialType STRING
+CREATE PROPERTY Sample.miabis#AnatomicalSite STRING
+CREATE PROPERTY Sample.miabis#DetailedMaterialType STRING
+CREATE PROPERTY Sample.miabis#Aliquot EMBEDDEDLIST Aliquot
+
+CREATE CLASS Device EXTENDS PhysicalObject
+
+CREATE CLASS Concept EXTENDS Entity ABSTRACT
+
+CREATE CLASS Procedure EXTENDS Concept
+CREATE CLASS Experiment EXTENDS Concept
+CREATE CLASS Study EXTENDS Concept
+
+CREATE CLASS DigitalObject EXTENDS Entity ABSTRACT
+CREATE PROPERTY DigitalObject.hash STRING
+CREATE PROPERTY DigitalObject.size STRING
+CREATE PROPERTY DigitalObject.encoding STRING
+
+CREATE CLASS EHR EXTENDS DigitalObject
+CREATE CLASS Image EXTENDS DigitalObject
+CREATE CLASS Spredsheed EXTENDS DigitalObject
+CREATE CLASS Document EXTENDS DigitalObject
