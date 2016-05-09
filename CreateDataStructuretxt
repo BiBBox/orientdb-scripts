@@ -45,7 +45,7 @@ CREATE PROPERTY Subject.foaf#ID EMBEDDEDLIST PersonId
 
 CREATE CLASS Aliquot EXTENDS PhysicalObject
 CREATE PROPERTY Aliquot.miabis#Location STRING
-CREATE PROPERTY Aliquot.miabis#Avaiability STRING
+CREATE PROPERTY Aliquot.miabis#Availability STRING
 CREATE PROPERTY Aliquot.miabis#Amount STRING
 CREATE PROPERTY Aliquot.ucum#AmountUnit STRING
 CREATE PROPERTY Aliquot.miabis#MaterialCarrier STRING
